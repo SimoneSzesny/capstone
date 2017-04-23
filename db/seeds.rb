@@ -13,7 +13,7 @@ for i in 0..3 do
    user.save
 end 
 
-stores = ["Amazon", "Nordstrom", "Target"]
+stores = ["Amazon", "Nordstrom", "Urban Outfitters","Asos","Forever 21","Top Shop"]
 stores.each do |store|
   Store.create(name: store)
 end
