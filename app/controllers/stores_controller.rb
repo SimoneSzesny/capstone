@@ -7,7 +7,6 @@ class StoresController < ApplicationController
   def show
     store_id = params[:id]
     @store = Store.find_by(id: store_id)
-    @item = Item.find_by(id: item_id)
     render "show.html.erb"
   end
 end
