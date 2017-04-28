@@ -1,0 +1,2 @@
+module StoreSubscriptionsHelper
+end

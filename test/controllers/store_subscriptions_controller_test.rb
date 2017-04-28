@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StoreSubcriptionsControllerTest < ActionDispatch::IntegrationTest
+class StoreSubscriptionsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

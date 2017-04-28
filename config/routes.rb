@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get "/stores" => "stores#index"
   get "/stores/:id" => "stores#show"
 
-  post "/"
+  post "/store_subscriptions" => "store_subscriptions#create"
+  get "/store_hello" => "store_subscriptions#show"
 
   get "/signup" => "users#new"
   post "/users" => "users#create"
