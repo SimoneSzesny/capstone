@@ -1,0 +1,2 @@
+class StoreSubcriptionsController < ApplicationController
+end
