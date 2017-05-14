@@ -175,7 +175,10 @@
 
       <div class="widget search margin-bottom-none">
         <i class="icon material-icons search"></i>
-        <input type="text" class="form-control input-sm" placeholder="Search Shop">
+        <%= form_tag "/items_search", method: :get do %>
+        <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
+        <input type="submit" value="search">
+        <% end %>
       </div>
 
       <nav class="offcanvas-navigation" role="navigation" data-back-btn-text="Back">
@@ -503,9 +506,15 @@
                   </li>
 
                   <li>
-                    <a href="#">
+                    <a href="/signup">
+                    <% if current_user %>
+                      <i class="material-icons person"></i>
+                      <a href="/logout"><span class="hidden-md">Sign Out</span></a>
+                      <% else %>
                       <i class="material-icons person"></i>
                       <a href="/login"><span class="hidden-md">Sign In</span></a>
+                      <%end%>
+
 
                     </a>
                   </li>

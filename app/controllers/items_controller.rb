@@ -25,4 +25,18 @@ class ItemsController < ApplicationController
       render "new.html.erb"
     end
   end
+
+  def index
+    if params[:form_name]
+      @items = Item.where("name LIKE ?", "%" + params[:form_name ] + "%")
+    else @items = Item.all
+    end
+    render "index.html.erb"
+  end
+
+  def show
+    item_id = params[:id]
+    @item = Item.find_by(id: params[:id])
+    render "show.html.erb"
+  end
 end

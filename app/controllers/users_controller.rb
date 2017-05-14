@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @users_stores = current_user.stores.uniq
     render "show.html.erb"
   end
 end

@@ -1,0 +1,12 @@
+<div id="searchbar">
+  <h2><%= @item.name %></h2>
+  <h2>Size: <%= @item.size %></h2>
+  <h2>Description: <%= @item.description %></h2>
+  <img src=<%= @item.images[0].image %>>
+  <p>Price: <%= @item.price %></p>
+
+<%= form_tag "/shopping_cart", method: :post do %>
+  <input type="hidden" name="item_id" value="<%= @item.id %>">
+  <input type="submit" value="Buy Now">
+<% end %>                  
+</div>

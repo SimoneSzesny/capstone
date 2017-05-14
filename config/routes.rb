@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get "/stores" => "stores#index"
   get "/stores/:id" => "stores#show"
 
+  get "items/:id" => "items#show"
+
   post "/store_subscriptions" => "store_subscriptions#create"
-  get "/store_hello" => "store_subscriptions#show"
+  get "/store_subscriptions" => "store_subscriptions#show"
 
   get "/signup" => "users#new"
   post "/users" => "users#create"
@@ -20,4 +22,8 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
+
+  get "/items_search" => "items#index"
+  post "/items_search" => "items#index"
+  get "/items/:id" => "items#show"
 end

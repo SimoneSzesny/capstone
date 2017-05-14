@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   def index
+    @items = Item.all
     @stores = Store.all
     render "index.html.erb"
   end
@@ -9,4 +10,6 @@ class StoresController < ApplicationController
     @store = Store.find_by(id: store_id)
     render "show.html.erb"
   end
+
+  
 end
