@@ -7,20 +7,20 @@
 
 <%= form_tag "/shopping_cart", method: :post do %>
   <input type="hidden" name="item_id" value="<%= @item.id %>">
-  <input type="submit" value="Buy Now">
+  <input type="submit" class="btn btn-default" value="Buy Now">
 <% end %>  
 
 <h2>Leave a Review</h2>                
 <%= form_tag "/reviews", method: :post do %>
   <input type="hidden" name="item_id" value="<%= @item.id %>">
   <input type="text" name="body">
-  <input type="submit" value="Submit Review">
+  <input type="submit" class="btn btn-default" value="Submit Review">
 <% end %>  
 
-<h2>Reviews</h2> 
+<h2><u>Reviews</u></h2> 
 <% @item.reviews.each do |review| %>
-<p><%= review.user.email %></p>
-  <p><%= review.body %></p>
+<p><h4><b><%= review.user.email %></b></h4></p>
+  <p><h5><%= review.body %></h5></p>
 <% end %>
 
 </div>

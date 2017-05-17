@@ -121,7 +121,7 @@
                     </select>
                   </div>
 
-                  <a href="#" class="btn btn-gray right-icon margin-bottom-none">Add To Cart <i class="material-icons shopping_cart"></i></a>
+                  <a href="/carted_products" class="btn btn-gray right-icon margin-bottom-none">Add To Cart <i class="material-icons shopping_cart"></i></a>
 
                   <a href="#" class="btn btn-gray btn-iconed margin-bottom-none"><i class="material-icons favorite_border"></i></a>
                 </div>
@@ -172,7 +172,7 @@
         <i class="icon material-icons search"></i>
         <%= form_tag "/items_search", method: :get do %>
           <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
-          <input type="submit" value="search">
+          <input type="submit" class="btn btn-default" value="search">
         <% end %>
       </div>
 
@@ -180,7 +180,7 @@
         <div class="menu-site-menu-container">
           <ul class="menu">
             <li class="menu-item menu-item-has-children current">
-              <a href="#">Home</a>
+              <a href="/stores">Home</a>
 
               <ul class="sub-menu">
                 <li class="menu-item current">
@@ -515,15 +515,15 @@
                     </a>
                   </li>
 
-                  <li class="dropdown">
+                  <li class="">
                     <a href="#">
-                      <span>$</span>
-                      <span class="hidden-md">Currency</span>
+                      <span></span>
+                      <span class="hidden-md"></span>
                     </a>
 
-                    <ul class="sub-menu">
-                      <li><a href="#">USD</a></li>
-                      <li><a href="#">EUR</a></li>
+                    <ul class="">
+                      <li><a href="#"></a></li>
+                      <li><a href="#"></a></li>
                     </ul>
                   </li>
                 </ul>
@@ -542,7 +542,7 @@
                 <ul class="main-nav">
                   <!-- Main Navigation Level -->
                   <li class="nav-item dropdown lvl-1 current">
-                    <a href="#">Home</a>
+                    <a href="/stores">Home</a>
 
                     <ul class="sub-menu">
                       <!-- 2nd Navigation Level -->
@@ -781,52 +781,38 @@
                         </div>
 
                         <ul class="cart-list">
+                        <% current_user.carted_products.each do |carted_product| %>
+                        <% item = carted_product.item %>
                           <!-- Cart List Item -->
                           <li>
                             <a href="product-gallery-left.html" class="cart-thumb">
-                              <img src="/img/shop/cart-widget/01.jpg" alt="">
+                              <img src="<%= item.images[0] %>" alt="">
                             </a>
 
                             <div class="info-cont">
-                              <a href="product-gallery-left.html" class="item-title">SUEDE-EFFECT JACKET</a>
+                              <a href="product-gallery-left.html" class="item-title"><%= item.name %></a>
 
                               <div class="category">
                                 Skirts
 
-                                <span class="cost">$ 140</span>
+                                <span class="cost">$<%= item.price %></span>
                               </div>
                             </div>
                           </li><!-- Cart List Item END -->
-
-                          <!-- Cart List Item -->
-                          <li>
-                            <a href="product-gallery-left.html" class="cart-thumb">
-                              <img src="/img/shop/cart-widget/02.jpg" alt="">
-                            </a>
-
-                            <div class="info-cont">
-                              <a href="product-gallery-left.html" class="item-title">SUEDE-EFFECT JACKET</a>
-
-                              <div class="category">
-                                Skirts
-
-                                <span class="cost">$140</span>
-                              </div>
-                            </div>
-                          </li><!-- Cart List Item END -->
+                        <% end %>
 
                           <!-- Cart Total -->
                           <li>
                             <div class="total">
                               Total
 
-                              <div class="cost">$80 0000</div>
+                              <div class="cost"></div>
                             </div>
                           </li><!-- Cart Total END -->
                         </ul>
 
-                        <a href="shopping-cart.html" class="btn btn-default btn-block margin-right-none">Go to cart</a>
-                        <a href="checkout-wizard.html" class="btn btn-default btn-block margin-right-none">Poceed to checkout</a>
+                        <a href="/carted_products" class="btn btn-default btn-block margin-right-none">Go to cart</a>
+                        <a href="/carted_products" class="btn btn-default btn-block margin-right-none">Poceed to checkout</a>
                       </div>
                     </div>
                   </div><!-- Cart dropdown element END -->

@@ -1,11 +1,13 @@
 <h1><%= @store.name %></h1>
 <% @store.items.each do |item| %>
-  <h2><%= item.name %></h2>
+  
+  <p><h2><a href="/items/<%= item.id %>"><%= item.name %></a></h2></p>
+
   <h2>Size: <%= item.size %></h2>
   <h2>Description: <%= item.description %></h2>
   <img src=<%= item.images[0].image %>>
 <% end %>
 <%= form_tag "/store_subscriptions", method: :post do %>
   <input type="hidden" name="store_id" value="<%= @store.id %>">
-  <input type="submit" value="Subscribe">
+  <input type="submit" class="btn btn-default" value="Subscribe">
 <% end %>           
