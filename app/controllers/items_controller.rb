@@ -28,8 +28,25 @@ class ItemsController < ApplicationController
 
   def index
     if params[:form_name]
-      @items = Item.where("name LIKE ?", "%" + params[:form_name ] + "%")
-    else @items = Item.all
+      @items = []
+      current_user.stores.each do |store|
+        store.items.each do |item|
+          @items << item
+        end
+      end
+      @items = @items.select { |item| item.name.downcase.include?(params[:form_name].downcase)}
+      # @items.where("name ILIKE ?", "%" + params[:form_name] + "%")
+
+      # @items = Item.where("name ILIKE ?", "%" + params[:form_name ] + "%")
+    else 
+      # @items = Item.all
+      @items = []
+      current_user.stores.each do |store|
+        store.items.each do |item|
+          @items << item
+        end
+      end
+      @items
     end
     render "index.html.erb"
   end

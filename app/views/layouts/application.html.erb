@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ExampleSeedFileApp</title>
+    <title>Black Sweater</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+    <meta charset="utf-8">
 
+    <!--SEO Meta Tags-->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="8Guild" />
 
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <meta charset="utf-8">
-  <title>B-Shop | Hero Slider</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
 
-  <!--SEO Meta Tags-->
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="8Guild" />
+    <!-- Material & Socicon Icons Fonts -->
+    <link rel="stylesheet" href="/stylesheets/vendor/socicon.min.css">
+    <link rel="stylesheet" href="/stylesheets/vendor/material-icons.min.css">
 
-  <!--Mobile Specific Meta Tag-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Bootstrap Core -->
+    <link href="/stylesheets/vendor/bootstrap.min.css" rel="stylesheet" media="screen">
 
-  <!--Favicon-->
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
+    <!-- Slick Carousel Default Styles -->
+    <link href="/stylesheets/vendor/slick.css" rel="stylesheet" media="screen">
 
-  <!-- Material & Socicon Icons Fonts -->
-  <link rel="stylesheet" href="stylesheets/vendor/socicon.min.css">
-  <link rel="stylesheet" href="stylesheets/vendor/material-icons.min.css">
+    <!-- Modal Default Styles -->
+    <link href="/stylesheets/vendor/magnific-popup.css" rel="stylesheet" media="screen">
 
-  <!-- Bootstrap Core -->
-  <link href="stylesheets/vendor/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Offcanvas Plugin -->
+    <link href="/stylesheets/vendor/slidebars.min.css" rel="stylesheet" media="screen">
 
-  <!-- Slick Carousel Default Styles -->
-  <link href="stylesheets/vendor/slick.css" rel="stylesheet" media="screen">
+    <!-- Revolution Slider Plugin -->
+    <link href="/stylesheets/vendor/layers.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/vendor/settings.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/vendor/navigation.css" rel="stylesheet" media="screen">
 
-  <!-- Modal Default Styles -->
-  <link href="stylesheets/vendor/magnific-popup.css" rel="stylesheet" media="screen">
+    <!-- All Theme Styles -->
+    <link href="/stylesheets/theme.min.css" rel="stylesheet" media="screen">
 
-  <!-- Offcanvas Plugin -->
-  <link href="stylesheets/vendor/slidebars.min.css" rel="stylesheet" media="screen">
-
-  <!-- Revolution Slider Plugin -->
-  <link href="stylesheets/vendor/layers.css" rel="stylesheet" media="screen">
-  <link href="stylesheets/vendor/settings.css" rel="stylesheet" media="screen">
-  <link href="stylesheets/vendor/navigation.css" rel="stylesheet" media="screen">
-
-  <!-- All Theme Styles -->
-  <link href="stylesheets/theme.min.css" rel="stylesheet" media="screen">
-
-  <!--Modernizr / Detectizr-->
-  <script src="js/vendor/modernizr.custom.js"></script>
-  <script src="js/vendor/detectizr.min.js"></script>
-
+    <!--Modernizr / Detectizr-->
+    <script src="/js/vendor/modernizr.custom.js"></script>
+    <script src="/js/vendor/detectizr.min.js"></script>
+</head>
 
 
 <!-- Body -->
@@ -78,12 +73,12 @@
         <div class="modal-content">
           <div class="row">
             <div class="col-sm-7">
-              <a href="#img01"><img src="img/product-gallery/01.jpg" alt="Thumb"></a>
+              <a href="#img01"><img src="/img/product-gallery/01.jpg" alt="Thumb"></a>
             </div>
             <div class="col-sm-5">
               <div class="single-item-info">
                 <div class="item-logo">
-                  <img src="img/single-item-logo.png" alt="">
+                  <img src="/img/single-item-logo.png" alt="">
                 </div>
                 <div class="item-title">
                   OVERSIZED DRESS
@@ -92,7 +87,7 @@
                   Product Sku: 5110336
                 </div>
                 <div class="item-rating">
-                  <img src="img/rating.png" alt="">
+                  <img src="/img/rating.png" alt="">
                   <span> (12 reviews)</span>
                 </div>
                 <div class="bages">
@@ -176,8 +171,8 @@
       <div class="widget search margin-bottom-none">
         <i class="icon material-icons search"></i>
         <%= form_tag "/items_search", method: :get do %>
-        <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
-        <input type="submit" value="search">
+          <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
+          <input type="submit" value="search">
         <% end %>
       </div>
 
@@ -478,8 +473,8 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-4">
-                <span class="text-primary">Welcome to B-Shop! Here is a free text! <i class="material-icons info_outline"></i></span>
-              </div>
+                <!-- <span class="text-primary">Welcome to B-Shop! Here is a free text! --> <i class="material-icons info_outline"></i></span>
+              </div> 
               <div class="col-sm-4 text-center">
                 <a href="#" class="social socicon-instagram"></a>
                 <a href="#" class="social socicon-facebook"></a>
@@ -493,16 +488,17 @@
                   <li class="dropdown">
                     <a href="#">
                       <i class="material-icons language"></i>
-                      <span class="hidden-md">Language</span>
-                    </a>
+                      <a href="/users/<%= current_user.id %>"><span class="hidden-md">View Your Profile</span>
+                      
+                    
 
-                    <ul class="sub-menu">
+                    <!-- <ul class="sub-menu">
                       <li><a href="#">Russian</a></li>
                       <li><a href="#">French</a></li>
                       <li><a href="#">Mandarin</a></li>
                       <li><a href="#">Italian</a></li>
                       <li><a href="#">Gorgean</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
 
                   <li>
@@ -752,7 +748,7 @@
               <div class="column text-center">
                 <!-- Main Logo -->
                 <a href="index.html" class="logo">
-                  <img src="img/logo.png" alt="">
+                  <img src="/img/logo.png" alt="">
                 </a><!-- Main Logo END -->
               </div>
 
@@ -761,7 +757,10 @@
                 <div class="header-tools text-right">
                   <div class="widget search">
                     <i class="icon material-icons search"></i>
-                    <input type="text" class="form-control input-sm" placeholder="Search Shop">
+                    <%= form_tag "/items_search", method: :get do %>
+                      <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
+                      <input type="submit" value="search">
+                    <% end %>
                   </div>
 
                   <a href="account-wishlist.html" class="header-tools-link wishlist">
@@ -785,7 +784,7 @@
                           <!-- Cart List Item -->
                           <li>
                             <a href="product-gallery-left.html" class="cart-thumb">
-                              <img src="img/shop/cart-widget/01.jpg" alt="">
+                              <img src="/img/shop/cart-widget/01.jpg" alt="">
                             </a>
 
                             <div class="info-cont">
@@ -802,7 +801,7 @@
                           <!-- Cart List Item -->
                           <li>
                             <a href="product-gallery-left.html" class="cart-thumb">
-                              <img src="img/shop/cart-widget/02.jpg" alt="">
+                              <img src="/img/shop/cart-widget/02.jpg" alt="">
                             </a>
 
                             <div class="info-cont">
@@ -878,13 +877,13 @@
                       <div class="featured-area">
                         <div class="feature-1">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/01.jpg" alt="">
+                            <img src="/img/mega-menu/01.jpg" alt="">
                           </a>
                           <a href="#">New Arrivals</a>
                         </div>
                         <div class="feature-2">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/02.jpg" alt="">
+                            <img src="/img/mega-menu/02.jpg" alt="">
                           </a>
                           <a href="#">New Lifestyle</a>
                         </div>
@@ -931,13 +930,13 @@
                       <div class="featured-area">
                         <div class="feature-1">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/03.jpg" alt="">
+                            <img src="/img/mega-menu/03.jpg" alt="">
                           </a>
                           <a href="#">New Arrivals</a>
                         </div>
                         <div class="feature-2">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/04.jpg" alt="">
+                            <img src="/img/mega-menu/04.jpg" alt="">
                           </a>
                           <a href="#">New Lifestyle</a>
                         </div>
@@ -984,13 +983,13 @@
                       <div class="featured-area">
                         <div class="feature-1">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/01.jpg" alt="">
+                            <img src="/img/mega-menu/01.jpg" alt="">
                           </a>
                           <a href="#">New Arrivals</a>
                         </div>
                         <div class="feature-2">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/02.jpg" alt="">
+                            <img src="/img/mega-menu/02.jpg" alt="">
                           </a>
                           <a href="#">New Lifestyle</a>
                         </div>
@@ -1037,13 +1036,13 @@
                       <div class="featured-area">
                         <div class="feature-1">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/01.jpg" alt="">
+                            <img src="/img/mega-menu/01.jpg" alt="">
                           </a>
                           <a href="#">New Arrivals</a>
                         </div>
                         <div class="feature-2">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/02.jpg" alt="">
+                            <img src="/img/mega-menu/02.jpg" alt="">
                           </a>
                           <a href="#">New Lifestyle</a>
                         </div>
@@ -1090,13 +1089,13 @@
                       <div class="featured-area">
                         <div class="feature-1">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/01.jpg" alt="">
+                            <img src="/img/mega-menu/01.jpg" alt="">
                           </a>
                           <a href="#">New Arrivals</a>
                         </div>
                         <div class="feature-2">
                           <a href="#" class="fear-image">
-                            <img src="img/mega-menu/02.jpg" alt="">
+                            <img src="/img/mega-menu/02.jpg" alt="">
                           </a>
                           <a href="#">New Lifestyle</a>
                         </div>
@@ -1119,7 +1118,7 @@
 
             <!-- Mobile View Logo -->
             <a href="index.html" class="logo">
-              <img src="img/logo.png" alt="">
+              <img src="/img/logo.png" alt="">
             </a>
 
             <div class="mobile-tools">
@@ -1146,20 +1145,20 @@
    <!-- Page Wrapper END -->
 
   <!-- JavaScript (jQuery) libraries, plugins and custom scripts -->
-  <script src="js/vendor/jquery-2.1.4.min.js"></script>
-  <script src="js/vendor/preloader.min.js"></script>
-  <script src="js/vendor/bootstrap.min.js"></script>
-  <script src="js/vendor/nouislider.min.js"></script>
-  <script src="js/vendor/jquery.magnific-popup.min.js"></script>
-  <script src="js/vendor/wNumb.js"></script>
-  <script src="js/vendor/slick.min.js"></script>
-  <script src="js/vendor/isotope.pkgd.min.js"></script>
-  <script src="js/vendor/velocity.min.js"></script>
-  <script src="js/vendor/slidebars.min.js"></script>
-  <script src="js/vendor/jquery.themepunch.tools.min.js"></script>
-  <script src="js/vendor/jquery.themepunch.revolution.min.js"></script>
+  <script src="/js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="/js/vendor/preloader.min.js"></script>
+  <script src="/js/vendor/bootstrap.min.js"></script>
+  <script src="/js/vendor/nouislider.min.js"></script>
+  <script src="/js/vendor/jquery.magnific-popup.min.js"></script>
+  <script src="/js/vendor/wNumb.js"></script>
+  <script src="/js/vendor/slick.min.js"></script>
+  <script src="/js/vendor/isotope.pkgd.min.js"></script>
+  <script src="/js/vendor/velocity.min.js"></script>
+  <script src="/js/vendor/slidebars.min.js"></script>
+  <script src="/js/vendor/jquery.themepunch.tools.min.js"></script>
+  <script src="/js/vendor/jquery.themepunch.revolution.min.js"></script>
 
-  <script src="js/scripts.js"></script>
+  <script src="/js/scripts.js"></script>
 
 
 
@@ -1249,7 +1248,7 @@
 
             <div class="column">
               <div class="cards">
-                <img src="img/cards.png" alt="Credit Cards">
+                <img src="/img/cards.png" alt="Credit Cards">
               </div>
             </div><!-- .column -->
           </div>

@@ -25,5 +25,8 @@ Rails.application.routes.draw do
 
   get "/items_search" => "items#index"
   post "/items_search" => "items#index"
-  get "/items/:id" => "items#show"
+  get "/items/:id" => "items#show", as: :item
+
+  get "/reviews" => "reviews#index"
+  post "/reviews" => "reviews#create"
 end
