@@ -488,8 +488,9 @@
                   <li class="dropdown">
                     <a href="#">
                       <i class="material-icons language"></i>
+                      <% if current_user %>
                       <a href="/users/<%= current_user.id %>"><span class="hidden-md">View Your Profile</span>
-                      
+                      <% end %>
                     
 
                     <!-- <ul class="sub-menu">
@@ -771,7 +772,7 @@
                   <div class="cart-container dropdown">
                     <a href="#" class="header-tools-link cart-link">
                       <i class="material-icons shopping_cart"></i>
-                      <span class="counter">24</span>
+                      <span class="counter"><%= current_user.carted_products.count %></span>
                     </a>
 
                     <div class="sub-menu">
@@ -779,14 +780,14 @@
                         <div class="widget-title">
                           Latest Products
                         </div>
-
+                        <% if current_user %>
                         <ul class="cart-list">
                         <% current_user.carted_products.each do |carted_product| %>
                         <% item = carted_product.item %>
                           <!-- Cart List Item -->
                           <li>
                             <a href="product-gallery-left.html" class="cart-thumb">
-                              <img src="<%= item.images[0] %>" alt="">
+                              <img src="<%= item.images[0].image %>" alt="">
                             </a>
 
                             <div class="info-cont">
@@ -810,6 +811,7 @@
                             </div>
                           </li><!-- Cart Total END -->
                         </ul>
+                        <% end %>
 
                         <a href="/carted_products" class="btn btn-default btn-block margin-right-none">Go to cart</a>
                         <a href="/carted_products" class="btn btn-default btn-block margin-right-none">Poceed to checkout</a>

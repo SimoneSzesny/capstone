@@ -30,4 +30,11 @@ Rails.application.routes.draw do
 
   get "/reviews" => "reviews#index"
   post "/reviews" => "reviews#create"
+
+  namespace :api do
+    namespace :v1 do
+      get "/stores" => "stores#index"      
+      get "/stores/:id" => "stores#show"      
+    end
+  end
 end

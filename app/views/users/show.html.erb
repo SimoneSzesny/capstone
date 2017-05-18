@@ -1,7 +1,10 @@
 <h1>My Profile</h1>
-First name: <%= @user.first_name %><br>
-Last name: <%= @user.last_name %><br>
-Stores I'm Subscribed To: 
+<img src="<%= @user.avatar.url %>" style="width: 200px">
+<h3>First name: <%= @user.first_name %><br></h3>
+<h3>Last name: <%= @user.last_name %><br></h3>
+
+<h3><u><b>Stores I'm Subscribed To:</b></u></h3> 
 <% @users_stores.each do |user_store| %>
-  <p><%= user_store.name %></p>
+  <h4><p><%= user_store.name %></p></h4>
+ 
 <% end %>

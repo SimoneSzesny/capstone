@@ -5,7 +5,7 @@
 </div>
 
 <h1>Signup!</h1>
-<%= form_tag '/users', method: :post do  %>
+<%= form_tag '/users', method: :post, multipart: true do  %>
   <div>
     First Name: <input type="text" name="first_name">
   </div>
@@ -21,5 +21,8 @@
   <div>
     Confirm Password: <input type="password" name="password_confirmation">
   </div>
-  <input type="submit" value="Submit">
+  <div>
+    Avatar: <input type="file" name="avatar">
+  </div>
+  <input type="submit" class="btn btn-default" value="Submit">
 <% end %>
