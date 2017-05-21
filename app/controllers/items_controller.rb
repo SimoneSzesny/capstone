@@ -27,7 +27,16 @@ class ItemsController < ApplicationController
   end
 
   def index
-    if params[:form_name]
+    @styles = Style.all
+    @colors = Color.all
+    
+    if params[:sort_style].present?
+      style = Style.find_by(name: params[:sort_style])
+      @items = current_user.items.where(style_id: style.id)
+    elsif params[:sort].present?
+      color = Color.find_by(name: params[:sort])
+      @items = current_user.items.where(color_id: color.id)
+    elsif params[:form_name]
       @items = []
       current_user.stores.each do |store|
         store.items.each do |item|

@@ -3,6 +3,7 @@ class StoresController < ApplicationController
     @items = Item.all
     @stores = Store.all
     render "index.html.erb"
+    
   end
 
   def show

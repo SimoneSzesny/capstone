@@ -5,7 +5,7 @@
   <img src=<%= @item.images[0].image %>>
   <p>Price: <%= @item.price %></p>
 
-<%= form_tag "/shopping_cart", method: :post do %>
+<%= form_tag "/carted_products", method: :post do %>
   <input type="hidden" name="item_id" value="<%= @item.id %>">
   <input type="submit" class="btn btn-default" value="Buy Now">
 <% end %>  

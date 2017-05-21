@@ -1,3 +1,17 @@
+<a href="/items?sort=style">Sort By Style</a><br>
+<% @styles.each do |style| %>
+  <ul>
+    <li><a href="/items?sort_style=<%= style.name %>"><%= style.name %></a></li>
+  </ul>
+<% end %> 
+
+<a href="/items?sort=color">Sort By Color</a><br>
+<% @colors.each do |color| %>
+  <ul>
+    <li><a href="/items?sort=<%= color.name %>"><%= color.name %></a></li>
+  </ul>
+<% end %> 
 <% @items.each do |item| %>
 <a href="/items/<%= item.id %>"><%= item.name %></a><br>
 <% end %>
+

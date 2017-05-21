@@ -7,4 +7,5 @@ class Item < ApplicationRecord
   has_many :orders, through: :carted_products
   has_many :orders
   belongs_to :style
+  belongs_to :color
 end
