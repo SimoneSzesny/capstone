@@ -1,17 +1,212 @@
-<a href="/items?sort=style">Sort By Style</a><br>
-<% @styles.each do |style| %>
-  <ul>
-    <li><a href="/items?sort_style=<%= style.name %>"><%= style.name %></a></li>
-  </ul>
-<% end %> 
+    <main id="app">
+      {{ message }}
+        <!-- Page Title -->
+        <div class="page-title">
+          <div class="container">
+            <div class="breadcrumbs">
+              <a href="index.html">Home</a>
+              <span class="delimiter"><i class="material-icons keyboard_arrow_right"></i></span>
+              <span>Items</span>
+            </div>
 
-<a href="/items?sort=color">Sort By Color</a><br>
-<% @colors.each do |color| %>
-  <ul>
-    <li><a href="/items?sort=<%= color.name %>"><%= color.name %></a></li>
-  </ul>
-<% end %> 
-<% @items.each do |item| %>
-<a href="/items/<%= item.id %>"><%= item.name %></a><br>
-<% end %>
+            <div class="title pull-right">2 columns left sidebar</div>
+          </div>
+        </div><!-- Page Title END -->
 
+        <!-- Content -->
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-9 col-md-push-3">
+
+              <!-- Shop Grid Tools -->
+              <div class="shop-grid-tools">
+                <span class="count-info">{{items.length}} items found</span>
+
+                <div class="grid-switcher">
+                  <a href="shop-list-sl.html">
+                    <img src="img/grid-switcher/03.png" alt="">
+                  </a>
+
+                  <a href="shop-grid-2cols-sl.html" class="current">
+                    <img src="img/grid-switcher/01.png" alt="">
+                  </a>
+
+                  <a href="shop-grid-3cols-sl.html">
+                    <img src="img/grid-switcher/04.png" alt="">
+                  </a>
+
+                  <a href="shop-grid-4cols-ns.html">
+                    <img src="img/grid-switcher/02.png" alt="">
+                  </a>
+                </div>
+
+                <div class="select order-sorting">
+                  <select name="select">
+                    <option>Sort by price</option>
+                    <option>Sort by rating </option>
+                    <option>Sort by size</option>
+                  </select>
+                </div>
+              </div><!-- Shop Grid Tools END -->
+
+              <div class="row">
+                <!-- item start -->
+                
+
+                <div v-for="item in modifiedItems" class="col-md-6">
+                  <!-- Shop Grid Tile -->
+                  <div class="tile">
+                    <div class="preview-box">
+                      <div class="preview-carousel" data-slick='{"arrows": false, "dots": true}'>
+                        <img :src="item.images[0].image" data-color="#8a7b50" alt="">
+                        <!-- <img src="img/tiles/slider-color/02.jpg" data-color="#e9e4e0" alt=""> -->
+                      </div>
+
+                      <div class="preview-meta">
+                        
+                        <div>
+                          <a href="#quickPreview" data-toggle="modal" class="btn btn-iconed"><i class="material-icons zoom_out_map"></i></a>
+                        </div>
+                        
+                        <div>
+                          <a href="#" class="btn btn-iconed"><i class="material-icons shopping_cart"></i></a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tile-title">
+                      <a href="product-gallery-left.html">{{item.name}}</a>
+                    </div>
+
+                    <div class="tile-meta">
+                      <div class="meta-top">
+                        <a href="#" class="category">{{item.style.name}}</a>
+                  
+                        <br>
+                        <a href="#" class="category">{{item.store_name}}</a>
+                        <span class="cost">${{item.price}}</span>
+                      </div>
+                      <div class="meta-bottom">
+                        <img src="" class="raty" alt="">
+                      </div>
+                    </div>
+                  </div><!-- Shop Grid Tile END -->
+
+                </div>
+                <!-- item stop -->
+              </div>
+            </div>
+
+            <div class="col-md-3 col-md-pull-9">
+              <!-- Sidebar -->
+              <aside class="sidebar">
+                <!-- Widget Search -->
+                <div class="widget search">
+                  <i class="icon material-icons search"></i>
+                  <input type="text" class="form-control input-sm" placeholder="Search Shop">
+                </div><!-- Widget Search END -->
+
+                <!-- Widget Categories -->
+                
+
+                  <!-- Widget Categories END -->
+
+                <!-- Widget Range Slider -->
+                <!-- Widget Range Slider END -->
+
+                <!-- Categories Filter -->
+                <div  class="widget categories-widget">
+                  <div class="widget-title">
+                    Styles
+                  </div>
+
+                  <ul class="cat-list">
+                
+
+                    <li v-for="style in styles">
+                    
+                      <label class="checkbox">
+                        <input type="checkbox" v-model="style.selected"> {{ style.name }}
+                      </label>
+                      <span>{{ style.items.length }}</span>
+                    </li>
+                  </ul>
+                </div><!-- Categories Filter END -->
+
+                <!-- Categories Filter -->
+                <div class="widget categories-widget">
+                  <div class="widget-title">
+                    Color
+                  </div>
+
+                  <ul class="cat-list">
+                  
+
+                    <li v-for="color in colors">
+                      <label class="checkbox">
+                        <input type="checkbox" v-model="color.selected"> {{ color.name }}
+                      </label>
+                      <span>{{ color.items.length }}</span>
+                    </li>
+                  </ul>
+                </div><!-- Categories Filter END -->
+
+                <!-- Latest Product List -->
+                <!-- Cart List Item END -->
+
+                    <!-- Cart List Item -->
+                    
+
+                    <!-- Cart List Item -->
+                    
+
+                    <!-- Cart List Item -->
+                    
+                  
+                  
+
+                  
+            
+                <!-- Popular Tags END -->
+
+                
+
+              </aside><!-- Sidebar END -->
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <nav aria-label="Page navigation" class="pull-right">
+            <ul class="pagination">
+              <li class="select-cont">
+                <div class="select margin-bottom-none">
+                  <select name="select">
+                    <option>View 120</option>
+                    <option>View 60</option>
+                    <option>View 30</option>
+                  </select>
+                </div>
+              </li>
+              <li class="arrow">
+                <a href="#" aria-label="Previous">
+                  <i class="material-icons arrow_back"></i>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li class="active"><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li class="arrow">
+                <a href="#" aria-label="Next">
+                  <i class="material-icons arrow_forward"></i>
+                </a>
+              </li>
+            </ul>
+          </nav><!-- Pagination END -->
+        </div><!-- Content END -->
+      </main>
+
+
+      

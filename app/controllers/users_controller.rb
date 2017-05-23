@@ -30,7 +30,28 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @users_stores = current_user.stores.uniq
-    p @users_stores
     render "show.html.erb"
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+    render "edit.html.erb"
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation],
+      avatar: params[:avatar]
+    )
+      flash[:success] = "Product Updated"
+      redirect_to "/users/#{current_user.id}"
+    else
+      render "edit.html.erb"
+    end
   end
 end

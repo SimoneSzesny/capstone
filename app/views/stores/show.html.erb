@@ -5,7 +5,7 @@
 
   <h2>Size: <%= item.size %></h2>
   <h2>Description: <%= item.description %></h2>
-  <img src=<%= item.images[0].image %>>
+  <img style="height:300px;width:300px;" src=<%= item.images[0].image %>>
 <% end %>
 <%= form_tag "/store_subscriptions", method: :post do %>
   <input type="hidden" name="store_id" value="<%= @store.id %>">

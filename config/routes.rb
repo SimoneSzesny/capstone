@@ -15,10 +15,13 @@ Rails.application.routes.draw do
 
   post "/store_subscriptions" => "store_subscriptions#create"
   get "/store_subscriptions" => "store_subscriptions#show"
+  delete "/store_subscriptions/:id" => "store_subscriptions#destroy"
+
 
   get "/signup" => "users#new"
   post "/users" => "users#create"
   get "/users/:id" => "users#show"
+  
 
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
@@ -33,8 +36,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get "/stores" => "stores#index"      
-      get "/stores/:id" => "stores#show"      
+      get "/items" => "items#index"           
+      get "/colors" => "colors#index"           
+      get "/styles" => "styles#index"           
     end
   end
 end

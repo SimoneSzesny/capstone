@@ -2,9 +2,13 @@
 <img src="<%= @user.avatar.url %>" style="width: 200px">
 <h3>First name: <%= @user.first_name %><br></h3>
 <h3>Last name: <%= @user.last_name %><br></h3>
+<h3>Member Since: <%= current_user.created_at.strftime("%D") %></h3>
 
 <h3><u><b>Stores I'm Subscribed To:</b></u></h3> 
 <% @users_stores.each do |user_store| %>
   <h4><p><%= user_store.name %></p></h4>
+  <%= link_to "Delete", "/store_subscriptions/#{user_store.id}", {method: :delete, class: "btn btn-default" }%>
  
 <% end %>
+
+ 

@@ -7,4 +7,11 @@ class StoreSubscriptionsController < ApplicationController
     storesubscription.save
     redirect_to "/stores"
   end
+
+  def destroy
+    @storesubscription = StoreSubscription.find_by(store_id: params[:id])
+    p @storesubscription
+    @storesubscription.destroy
+    redirect_to "/users/#{current_user.id}"
+  end
 end
