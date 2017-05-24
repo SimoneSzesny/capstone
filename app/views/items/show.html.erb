@@ -1,9 +1,27 @@
-<div id="searchbar">
-  <h2><%= @item.name %></h2>
-  <h2>Size: <%= @item.size %></h2>
-  <h2>Description: <%= @item.description %></h2>
-  <img src=<%= @item.images[0].image %>>
-  <p>Price: <%= @item.price %></p>
+
+
+<section class="fw-section">
+ 
+          <!-- Content -->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- Category Tile -->
+                <div class="tile tile-category">
+                  <!--  -->
+                  
+                    <img style="height:500px;width:375px;"src="<%= @item.images[0].image %>" alt="">
+                    </div>
+                  </a>
+                  <div>
+                    <div class="tile-title"><%= @item.name %></div>
+                    <div class="tile-title"><%= @item.size %></div>
+                    <div class="tile-title"><%= @item.price %></div>
+                  </div>
+
+                </div><!-- Category Tile END -->
+              </div>
+
 
 <%= form_tag "/carted_products", method: :post do %>
   <input type="hidden" name="item_id" value="<%= @item.id %>">

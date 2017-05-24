@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   def index
     @styles = Style.all
     @colors = Color.all
+    @items = Item.all
     
     if params[:sort_style].present?
       style = Style.find_by(name: params[:sort_style])

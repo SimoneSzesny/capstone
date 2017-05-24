@@ -1,13 +1,38 @@
-<h1><%= @store.name %></h1>
-<% @store.items.each do |item| %>
-  
-  <p><h2><a href="/items/<%= item.id %>"><%= item.name %></a></h2></p>
+<h1 style="text-align:center;"><%= @store.name %></h1>
 
-  <h2>Size: <%= item.size %></h2>
-  <h2>Description: <%= item.description %></h2>
-  <img style="height:300px;width:300px;" src=<%= item.images[0].image %>>
-<% end %>
-<%= form_tag "/store_subscriptions", method: :post do %>
-  <input type="hidden" name="store_id" value="<%= @store.id %>">
-  <input type="submit" class="btn btn-default" value="Subscribe">
-<% end %>           
+<section class="fw-section">
+ <% @store.items.each do |item| %>
+          <!-- Content -->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4">
+                <!-- Category Tile -->
+                <div class="tile tile-category">
+                  <a href="/items/<%= item.id %>" class="preview-box">
+                    <img style="height:500px;width:375px;" src="<%= item.images[0].image %>" alt="">
+                  </a>
+                  <div class="tile-title"><h4><%= item.name %></h4></div>
+                  <div class="tile-title"><h4><%= item.size %></h4></div>
+                  <div class="tile-title"><h4><%= item.price %></h4></div>
+
+                </div><!-- Category Tile END -->
+              </div>
+
+    <% end %>
+        
+        <%= form_tag "/store_subscriptions", method: :post do %>
+        <input type="hidden" name="store_id" value="<%= @store.id %>">
+        <input type="submit" class="btn btn-default" value="Click to Subscribe">
+        <% end %>
+              
+
+              
+
+             
+
+              
+             </div>
+            </div>
+          </div><!-- Content END -->
+        </section>
+

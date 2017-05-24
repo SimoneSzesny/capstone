@@ -48,6 +48,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log('the selected color ids are', selectedColorIds);
         return items;
       }
+    },
+    methods: {
+      itemUrl: function(id) {
+        url = "/items/" + id;
+        // url = "/#item-" + id;
+        return url
+      }
     }
   });
 });

@@ -1,5 +1,5 @@
     <main id="app">
-      {{ message }}
+    {{ message }}
         <!-- Page Title -->
         <div class="page-title">
           <div class="container">
@@ -59,14 +59,14 @@
                   <div class="tile">
                     <div class="preview-box">
                       <div class="preview-carousel" data-slick='{"arrows": false, "dots": true}'>
-                        <img :src="item.images[0].image" data-color="#8a7b50" alt="">
+                        <img :src="item.images[0].image" img style="height:500px;width:425px;"data-color="#8a7b50" alt="">
                         <!-- <img src="img/tiles/slider-color/02.jpg" data-color="#e9e4e0" alt=""> -->
                       </div>
 
                       <div class="preview-meta">
                         
                         <div>
-                          <a href="#quickPreview" data-toggle="modal" class="btn btn-iconed"><i class="material-icons zoom_out_map"></i></a>
+                          <a :href="itemUrl(item.id)" data-toggle="modal" class="btn btn-iconed"><i class="material-icons zoom_out_map"></i></a>
                         </div>
                         
                         <div>
@@ -209,4 +209,3 @@
       </main>
 
 
-      
