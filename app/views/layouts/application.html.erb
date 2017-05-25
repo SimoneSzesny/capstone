@@ -170,10 +170,7 @@
 
       <div class="widget search margin-bottom-none">
         <i class="icon material-icons search"></i>
-        <%= form_tag "/items_search", method: :get do %>
-          <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
-          <input type="submit" class="btn btn-default" value="search">
-        <% end %>
+        
       </div>
 
       <nav class="offcanvas-navigation" role="navigation" data-back-btn-text="Back">
@@ -182,21 +179,7 @@
             <li class="menu-item menu-item-has-children current">
               <a href="/stores">Home</a>
 
-              <ul class="sub-menu">
-                <li class="menu-item current">
-                  <a href="index.html">Hero Slider</a>
-                </li>
-                <li class="menu-item">
-                  <a href="home-category-tiles.html">Category</a>
-                </li>
-                <li class="menu-item">
-                  <a href="home-featured-products.html">Feature</a>
-                </li>
-                <li class="menu-item">
-                  <a href="home-week-deals.html">Deals of the Week</a>
-                </li>
-              </ul>
-            </li>
+              
 
             <li class="menu-item menu-item-has-children">
               <a href="#">Subscribe</a>
@@ -212,7 +195,7 @@
                 <li class="menu-item-has-children">
                   <a href="#">Nordstroms</a>
 
-                  <ul class="sub-menu">
+                  <ul class="">
                     <li>
                       <a href="product-gallery-left.html">Product Gallery Left</a>
                     </li>
@@ -508,25 +491,15 @@
                   <li class="nav-item dropdown lvl-1 current">
                     <a href="/stores">Home</a>
 
-                    <ul class="sub-menu">
-                      <!-- 2nd Navigation Level -->
-                      <li class="nav-item lvl-2 current">
-                        <a href="index.html">Hero Slider</a>
-                      </li><!-- 2nd Navigation Level END -->
-                      <!-- 2nd Navigation Level -->
-                      <li class="nav-item lvl-2">
-                        <a href="home-category-tiles.html">Category Tiles</a>
-                      </li><!-- 2nd Navigation Level END -->
-                      <!-- 2nd Navigation Level -->
-                      <li class="nav-item lvl-2">
-                        <a href="home-featured-products.html">Featured Products</a>
-                      </li><!-- 2nd Navigation Level END -->
-                      <!-- 2nd Navigation Level -->
-                      <li class="nav-item lvl-2">
-                        <a href="home-week-deals.html">Deals of the Week</a>
-                      </li><!-- 2nd Navigation Level END -->
+                    </li>
                     </ul>
-                  </li><!-- Main Navigation Level END -->
+                    <ul class="main-nav">
+                  <!-- Main Navigation Level -->
+                  <li class="nav-item dropdown lvl-1 current">
+                    <a href="/items">View Your Items</a>
+
+                    </li>
+                    </ul>
                   <!-- Main Navigation Level -->
                   <li class="nav-item dropdown lvl-1">
                     <a href="#">Subscribe</a>
@@ -537,38 +510,9 @@
                         <a href="#">Shop Pages</a>
 
                         <ul class="sub-menu">
-                          <li>
-                            <a href="shop-grid-3cols-sl.html">Grid 3 Cols Sidebar Left</a>
+                          
                           </li>
-                          <li>
-                            <a href="shop-grid-2cols-sl.html">Grid 2 Cols Sidebar Left</a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-3cols-sr.html">Grid 3 Cols Sidebar Right</a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-2cols-sr.html">Grid 2 Cols Sidebar Right</a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-4cols-ns.html">Grid 4 Cols No Sidebar</a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-3cols-ns.html">Grid 3 Cols No Sidebar</a>
-                          </li>
-                          <li>
-                            <a href="shop-grid-2cols-ns.html">Grid 2 Cols No Sidebar</a>
-                          </li>
-                          <li>
-                            <a href="shop-list-sl.html">List Sidebar Left</a>
-                          </li>
-                          <li>
-                            <a href="shop-list-sr.html">List Sidebar Right</a>
-                          </li>
-                          <li>
-                            <a href="shop-list-ns.html">List No Sidebar</a>
-                          </li>
-                        </ul>
-                      </li><!-- 2nd Navigation Level END -->
+                          
                       <!-- 2nd Navigation Level -->
                       <li class="nav-item dropdown lvl-2">
                         <a href="#">Categories</a>
@@ -721,10 +665,7 @@
                 <div class="header-tools text-right">
                   <div class="widget search">
                     <i class="icon material-icons search"></i>
-                    <%= form_tag "/items_search", method: :get do %>
-                      <input type="text" name="form_name" class="form-control input-sm" placeholder="Search Shop">
-                      <input type="submit" value="search">
-                    <% end %>
+                    
                   </div>
 
                   <a href="account-wishlist.html" class="header-tools-link wishlist">
@@ -735,7 +676,7 @@
                   <div class="cart-container dropdown">
                     <a href="#" class="header-tools-link cart-link">
                       <i class="material-icons shopping_cart"></i>
-                      <span class="counter"><%= current_user.carted_products.count %></span>
+                      <span class="counter"><%= current_user.carted_products.where(status: "carted").count %></span>
                     </a>
 
                     <div class="sub-menu">
@@ -745,7 +686,7 @@
                         </div>
                         <% if current_user %>
                         <ul class="cart-list">
-                        <% current_user.carted_products.each do |carted_product| %>
+                        <% current_user.carted_products.where(status: "carted").each do |carted_product| %>
                         <% item = carted_product.item %>
                           <!-- Cart List Item -->
                           <li>

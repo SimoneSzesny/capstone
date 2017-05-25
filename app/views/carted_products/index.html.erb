@@ -1,7 +1,7 @@
 <h1>Shopping Cart</h1>
 <% @carted_products.each do |carted_product| %>
   <h2><%= carted_product.item.name %></h2>
-  <img src=<%= carted_product.item.images[0].image %>>
+  <img style="height:500px;width:375px"  src=<%= carted_product.item.images[0].image %>>
   <h3>Quantity: <%= carted_product.quantity %></h3>
   <h3>Price: <%= carted_product.item.price %></h3>
   <%= form_tag "/carted_products/#{carted_product.id}", method: :delete do %>
